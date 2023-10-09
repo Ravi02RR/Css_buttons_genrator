@@ -43,13 +43,19 @@ button:hover {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.properties-display {
+..properties-display {
+  max-width: 1000px; 
   width: 90%;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
   background-color: #333;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.properties-display:hover {
+  background-color: #444; 
 }
 
 .properties-display h2,
@@ -58,6 +64,7 @@ button:hover {
   padding-bottom: 10px;
   margin-bottom: 20px;
   font-weight: 600;
+  color: #ecf0f1; 
 }
 
 .modification-section {
@@ -71,14 +78,15 @@ button:hover {
   flex-direction: column;
   font-size: 14px;
   font-weight: 500;
+  color: #ecf0f1; 
 }
 
 .modification-section input {
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #555; 
   border-radius: 5px;
-  transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .modification-section input[type="text"],
@@ -88,8 +96,23 @@ button:hover {
 
 .modification-section input:focus {
   border-color: #3498db;
+  background-color: #444; 
   outline: none;
 }
+
+
+@media (max-width: 768px) {
+  .properties-display,
+  .modification-section {
+    width: 100%;
+  }
+
+  .modification-section {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+}
+
 
 
 
@@ -105,11 +128,5 @@ button:hover {
     align-items: center;
   }
 
-  .properties-display {
-    width: 100%;
-  }
 
-  .modification-section {
-    grid-template-columns: 1fr;
-  }
 }
