@@ -43,9 +43,10 @@ function App() {
   }
 
   return (<>
+  <Header></Header>
     
     <div className="App">
-    <Header></Header>
+    
       
 
       <div className="button-container">
