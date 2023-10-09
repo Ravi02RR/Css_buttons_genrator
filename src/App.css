@@ -43,7 +43,7 @@ button:hover {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-..properties-display {
+.properties-display {
   max-width: 1000px; 
   width: 90%;
   border-radius: 10px;
