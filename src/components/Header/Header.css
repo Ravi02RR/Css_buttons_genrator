@@ -2,7 +2,8 @@
     margin-bottom: 10px;
     
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 20PX;
     align-items: center;
     padding: 10px 40px;
     background-color: #333;
@@ -29,6 +30,7 @@
     .navbar {
         flex-direction: column;
         align-items: start;
+        gap: 1PX;
         padding: 10px 20px;
     }
 

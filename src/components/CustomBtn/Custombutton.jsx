@@ -11,7 +11,8 @@ function Custombutton() {
         fontSize: '16px',
         fontWeight: 'normal',
         transition: 'none',
-        fontFamily: 'Arial, sans-serif'
+        fontFamily: 'Arial, sans-serif',
+        transform: 'scale(1)'
     });
     const [buttonText, setButtonText] = useState("Preview");
 
@@ -23,8 +24,8 @@ function Custombutton() {
     };
 
     const generateCssCode = () => {
-        const { background, color, border, borderRadius, boxShadow, fontSize, fontWeight, fontFamily } = buttonStyle;
-        return `
+        const { background, color, border, borderRadius, boxShadow, fontSize, fontWeight, fontFamily, transform } = buttonStyle;
+        let cssCode = `
 background: ${background};
 color: ${color};
 border: ${border};
@@ -34,6 +35,15 @@ font-size: ${fontSize};
 font-weight: ${fontWeight};
 font-family: ${fontFamily};
         `.trim();
+        
+      
+        if (buttonStyle.transition !== 'none') {
+            cssCode += `
+transform: ${transform};
+            `.trim();
+        }
+
+        return cssCode;
     };
 
     const handleCopy = () => {
@@ -56,7 +66,8 @@ font-family: ${fontFamily};
                 }} onMouseLeave={() => handleStyleChange('transform', 'scale(1)')}>{buttonText}</button>
             </div>
 
-            <div className="controls">
+          
+<div className="controls">
                 <label>
                     Background Color:
                     <input type="color" value={buttonStyle.background} onChange={e => handleStyleChange('background', e.target.value)} />
@@ -121,7 +132,6 @@ font-family: ${fontFamily};
                     </select>
                 </label>
             </div>
-
             <div className="css-display">
                 <h3>Your CSS Code:</h3>
                 <textarea readOnly value={generateCssCode()} rows="10" cols="30" />
